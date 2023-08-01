@@ -1,0 +1,39 @@
+.main {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    gap: 5px;
+}
+
+.formPopup {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    box-shadow: 1px 1px 1px black;
+    visibility: hidden;
+    position: absolute;
+    align-self: center;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px 10px 10px;
+    gap: 10px;
+}
+
+form > h3,
+form > h4 {
+    margin: 0px;
+}
+
+form > h3 {
+    align-self: center;
+}
+
+.openFormPopup {
+    visibility: visible;
+    top: 30%;
+    left: 50%;
+    
+}

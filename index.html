@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="javascript.js" defer></script>
+        <title>Library</title>
+    </head>
+    <body>
+        <div class="main"></div>
+        <button type="button" class="btn" onclick="openFormPopup()">Add New Book</button>
+        <div class="formPopup">
+            <form action="N/A" method="post">
+                <h3>Add New Book</h3>
+                <div>
+                    <label for="title">Book:</label>
+                    <input type="text" id="title" name="bookname">
+                </div>
+                
+                <div>
+                    <label for="authpr">Author:</label>
+                    <input type="text" id="author" name="author">
+                </div>
+
+                <div>
+                    <label for="pages">Pages:</label>
+                    <input type="text" id="pages" name="pages">
+                </div>
+            
+                <h4>Has read:</h4>
+                <div>
+                    <input type="radio" id="readY" name="readBook" value="readY">
+                    <label for="readY">Yes</label>
+                </div>
+                
+                <div>
+                    <input type="radio" id="readN" name="readBook" value="readN">
+                    <label for="readN">No</label>
+                </div>
+
+                <button type="submit" onclick="closeFormPopup()">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
