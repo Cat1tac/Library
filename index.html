@@ -20,13 +20,13 @@
                 </div>
                 
                 <div>
-                    <label for="authpr">Author:</label>
+                    <label for="author">Author:</label>
                     <input type="text" id="author" name="author">
                 </div>
 
                 <div>
                     <label for="pages">Pages:</label>
-                    <input type="text" id="pages" name="pages">
+                    <input type="number" id="pages" name="pages" min="1">
                 </div>
             
                 <h4>Has read:</h4>
@@ -40,7 +40,7 @@
                     <label for="readN">No</label>
                 </div>
 
-                <button type="submit" onclick="closeFormPopup()">Submit</button>
+                <button class='sub' type="button">Submit</button>
             </form>
         </div>
     </body>
