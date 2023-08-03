@@ -6,6 +6,8 @@ let myLibrary = [];
 let books = [];
 let cardList = [];
 let deleteButtons = [];
+let readToggle = [];
+let bookRead = [];
 let radioVal;
 
 submitButton.addEventListener('click', () => {
@@ -42,29 +44,29 @@ function updateScreen() {
     bookPages.textContent = "Pages: " + books[i].pages;
     cardList[i].appendChild(bookPages);
 
-    readToggle = document.createElement('input');
-    readToggle.type = "checkbox";
-    readToggle.name = "readBook";
-    readToggle.value = "isRead";
-    readToggle.id = "readToggle";
-    cardList[i].appendChild(readToggle);
+    readToggle[i] = document.createElement('input');
+    readToggle[i].type = "checkbox";
+    readToggle[i].name = "readBook";
+    readToggle[i].value = "isRead";
+    readToggle[i].id = "readToggle";
+    cardList[i].appendChild(readToggle[i]);
 
     if(radioValue() === "Has read"){
       hasRead[0].checked = false;
-      readToggle.checked = true;
+      readToggle[i].checked = true;
     }
 
-    bookRead = document.createElement('p');
-    bookRead.textContent = books[i].read;
-    cardList[i].appendChild(bookRead); 
+    bookRead[i] = document.createElement('p');
+    bookRead[i].textContent = books[i].read;
+    cardList[i].appendChild(bookRead[i]); 
 
-    readToggle.addEventListener('click', () => {
-      if(readToggle.checked){
+    readToggle[i].addEventListener('click', () => {
+      if(readToggle[i].checked){
         books[i].read = "Has read"
-        bookRead.textContent = books[i].read;
+        bookRead[i].textContent = books[i].read;
       } else {
         books[i].read = "Has not read";
-        bookRead.textContent = books[i].read;
+        bookRead[i].textContent = books[i].read;
       }
     });
 

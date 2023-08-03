@@ -59,7 +59,7 @@ form > h3 {
 .openFormPopup {
     visibility: visible;
     top: 30%;
-    left: 50%;
+    align-self: center;
     
 }
 
