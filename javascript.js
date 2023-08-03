@@ -1,10 +1,12 @@
 const libraryContainer = document.querySelector('.main');
 const submitButton = document.querySelector('.sub');
 const formPopup = document.querySelector('.formPopup');
+const hasRead = document.querySelectorAll("input[type='radio']");
 let myLibrary = [];
 let books = [];
 let cardList = [];
 let deleteButtons = [];
+let radioVal;
 
 submitButton.addEventListener('click', () => {
   addBookToLibrary();
@@ -40,15 +42,37 @@ function updateScreen() {
     bookPages.textContent = "Pages: " + books[i].pages;
     cardList[i].appendChild(bookPages);
 
+    readToggle = document.createElement('input');
+    readToggle.type = "checkbox";
+    readToggle.name = "readBook";
+    readToggle.value = "isRead";
+    readToggle.id = "readToggle";
+    cardList[i].appendChild(readToggle);
+
+    if(radioValue() === "Has read"){
+      hasRead[0].checked = false;
+      readToggle.checked = true;
+    }
+
     bookRead = document.createElement('p');
     bookRead.textContent = books[i].read;
     cardList[i].appendChild(bookRead); 
+
+    readToggle.addEventListener('click', () => {
+      if(readToggle.checked){
+        books[i].read = "Has read"
+        bookRead.textContent = books[i].read;
+      } else {
+        books[i].read = "Has not read";
+        bookRead.textContent = books[i].read;
+      }
+    });
 
     deleteButtons[i] = document.createElement('button');
     deleteButtons[i].textContent = "Remove";
     cardList[i].appendChild(deleteButtons[i]);
 
-    //library delete button
+    //book delete button
     deleteButtons[i].addEventListener('click', () => {
       libraryContainer.removeChild(cardList[i]);
       books.splice(i, 1);
@@ -85,11 +109,9 @@ function addBookToLibrary(){
 }
 
 //Get radio buttons value
-function radioValue () {
-  const hasRead = document.querySelectorAll("input[type='radio']");
+function radioValue() {
   for (let i = 0; i < hasRead.length; i++){
     if (hasRead[0].checked) {
-      hasRead[0].checked = false;
       return "Has read";
     } else {
       hasRead[1].checked = false;
