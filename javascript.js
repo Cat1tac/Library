@@ -4,15 +4,13 @@ const formPopup = document.querySelector('.formPopup');
 let myLibrary = [];
 let books = [];
 
-
-
-
 submitButton.addEventListener('click', () => {
   addBookToLibrary();
   console.log(myLibrary);
   updateScreen();
 });
 
+//object for basis of all books
 function Book(title, author, pages, read){
   this.title = title,
   this.author = author,
@@ -24,7 +22,7 @@ function Book(title, author, pages, read){
   }
 }
 
-//Displays books from the myLibrary list
+//Displays books from the myLibrary array
 function updateScreen() {
   let card;
   for(let i = myLibrary.length - 1; i < myLibrary.length; i++){
@@ -36,11 +34,12 @@ function updateScreen() {
   }
 }
 
-//Open and close form popup
-
+//Open form popup
 function openFormPopup(){
   formPopup.classList.add("openFormPopup");
 }
+
+//Close form popup and gets information entered by user
 function addBookToLibrary(){
   let title;
   let author;
@@ -58,6 +57,7 @@ function addBookToLibrary(){
   formPopup.classList.remove("openFormPopup");
 }
 
+//Get radio buttons value
 function radioValue () {
   const hasRead = document.getElementsByName('readBook');
   if (hasRead[0].checked === true) {
@@ -66,8 +66,3 @@ function radioValue () {
     return "has not read";
   }
 }
-
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet');
-console.log(theHobbit.info());  
-
-console.log(myLibrary.length);
